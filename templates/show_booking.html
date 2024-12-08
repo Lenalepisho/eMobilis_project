@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block title %}Show Booking{% endblock  %}
+
+{% block content %}
+<table class="table table-dark-responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>phone</th>
+            <th>date_check_in</th>
+            <th>date_check_out</th>
+            <th>number</th>
+            <th>message</th>
+            
+        </tr>
+
+    </thead>
+    <tbody>
+        {% for booking in booking %}
+       <tr>
+        <td>{{booking.name}}</td>
+        <td>{{booking.email}}</td>
+        <td>{{booking.phone}}</td>
+        <td>{{booking.date_check_in}}</td>
+        <td>{{booking.date_check_out}}</td>
+        <td>{{booking.number}}</td>
+        <td>{{booking.message}}</td>
+       
+        <td>
+            <a href="{% url 'caveapp:update_booking' booking.id %}">Edit</a>
+            <a href="{% url 'caveapp:delete_booking' booking.id %}"class="btn btn-danger">Delete</a>
+           
+        </td>
+       </tr>
+       {% endfor %} 
+    </tbody>
+</table>
+{% endblock %}

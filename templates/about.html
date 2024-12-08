@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About Us{% endblock  %}
+{% block content %}
+<!-- About Section -->
+ <section id="about" class="about section">
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+      <div class="row gy-4">
+        <div class="col-lg-6 order-1 order-lg-2">
+          <img src="{% static 'assets/img/table-5356682_1280.jpg' %}" alt="">
+        </div>
+        <div class="col-lg-6 order-2 order-lg-1 content">
+          <h3>Distinct Luxury Camp</h3>
+          <p class="fst-italic">
+           About Us
+         </p>
+          <ul>
+            <li><i class="bi bi-check2-all"></i> <span>Welcome to Tiger's Cave Camp, a unique retreat nestled in the heart of Samburu, Northern Kenya, along the tranquil Ewaso Nyiro River. Located between three iconic national reserves—Shaba, Samburu, and Buffalo—our lodge offers breathtaking views of the Sabashe Mountain, a perfect hiking spot for our guests.
+
+              At Tiger's Cave Camp, we celebrate the rich culture of the local Samburu community, inviting guests to experience their traditional dances, unique dressing codes, and cultural practices through interactive experiences.
+              
+              Our camp features 12 cottages and 20 tents, all ensuite and offering stunning river views. With a total of 150 beds, the design and location of our accommodation provide guests with a serene and breezy stay. Additionally, our beautiful swimming pool offers the perfect place to relax and unwind amidst nature..</span></li>
+
+
+          </ul> 
+     
+        </div>
+      </div>
+
+    </div>
+
+  </section><!-- /About Section -->
+  {% endblock %}

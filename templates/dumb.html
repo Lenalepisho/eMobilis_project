@@ -1,0 +1,91 @@
+def create_booking(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        date_check_in = request.POST['date_check_in']
+        date_check_out = request.POST['date_check_out']
+        number = request.POST['number']
+        message = request.POST['message']
+
+        booking = Booking(
+            name=name,
+            email=email,
+            phone=phone,
+            date_check_in=date_check_in,
+            date_check_out=date_check_out,
+            number=number,
+            message=message
+        )
+        booking.save()
+        #redirect to a page
+        return redirect('caveapp:index')
+    else:
+        return render(request, 'booking.html',)
+    
+
+ # retrieve all appointments
+def retrieve_booking(request):
+    """retrieve/fetch all booking"""
+# create variable to store these booking
+    booking=Booking.objects.all()
+    context= {'booking':booking}
+    return render(request,'show_booking.html', context)
+
+
+
+
+    {% extends "base.html" %}
+{% block title %}Show Booking{% endblock  %}
+
+{% block content %}
+<table class="table table-light-responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>phone</th>
+            <th>date_check_in</th>
+            <th>date_check_out</th>
+            <th>number</th>
+            <th>message</th>
+            
+        </tr>
+
+    </thead>
+    <tbody>
+        {% for booking in booking %}
+       <tr>
+        <td>{{booking.name}}</td>
+        <td>{{booking.email}}</td>
+        <td>{{booking.phone}}</td>
+        <td>{{booking.check_date_in}}</td>
+        <td>{{booking.check_date_out}}</td>
+        <td>{{booking.number}}</td>
+        <td>{{booking.message}}</td>
+       
+        <td>
+          
+        </td>
+       </tr>
+       {% endfor %} 
+    </tbody>
+</table>
+{% endblock %}
+
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'phone', 'date_check_in', 'date_check_out', 'number','message')
+    list_filter = ('date_check_in', 'date_check_out')
+    search_fields = ('name', 'email', 'phone')
+
+
+
+    from django.db import models
+
+# Create your models here.
+class UploadImage(models.Model):
+    title = models.CharField(max_length=100) #Image title
+    image = models.ImageField(upload_to='uploaded_mage') #folder to save images
+    def __str__(self):
+        return self.title
