@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'caveapp',
     'accountapp',
     'uploadapp',
+    
 ]
 
 MIDDLEWARE = [

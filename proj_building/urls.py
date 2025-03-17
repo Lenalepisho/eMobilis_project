@@ -22,4 +22,5 @@ urlpatterns = [
     path('',include('caveapp.urls')),
     path('accountapp/', include('accountapp.urls')),
     path('uploadapp/', include('uploadapp.urls')),
+    
 ]

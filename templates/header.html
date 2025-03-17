@@ -1,4 +1,9 @@
 {% load static %}
+ <style>
+  header {
+    background-color: light blue;
+  }
+</style>
 
 <header id="header" class="header fixed-top">
 
@@ -14,6 +19,7 @@
             <li><a href="#">De</a></li>
             <li><a href="{% url 'accountapp:register' %}"class="">Register</a><li>
             <li><a href="{% url 'accountapp:login' %}"class="">Login</a><li>
+              <li><a href="{% url 'accountapp:logout' %}"class="">Logout</a><li>
             <li><a href="{% url 'uploadapp:upload_image' %}"class="">uploadImage</a><li>
           </ul>
         </div>
@@ -26,7 +32,7 @@
         <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <h1 class="sitename">Tiger's Cave Camp Restaurant</h1>
+          <h1 class="sitename">Northern Safaris' Camp</h1>
         </a>
 
         <nav id="navmenu" class="navmenu">
@@ -46,7 +52,9 @@
         </nav>
 
         <a class="btn-book-a-table d-none d-xl-block" href="{% url "caveapp:booking" %}">Book a Table</a> 
-       
+
+        <a href="{% url 'caveapp:my_bookings' %}">My Bookings</a>
+ 
        
           
 

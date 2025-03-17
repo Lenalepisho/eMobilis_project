@@ -1,7 +1,7 @@
 from django.core.files.storage import FileSystemStorage
 from .models import UploadImage
 from django.shortcuts import render, redirect
-# from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseForbidden
 
 # View for successful upload
@@ -9,18 +9,18 @@ def upload_success(request):
     return render(request, 'uploading/upload_success.html')
 
 
-# @login_required
+@login_required
 def upload_image(request):
     if not request.user.is_authenticated:
         return HttpResponseForbidden("You need to be logged in to upload images.")
     #Continue with upload logic
 
 # View for uploading images
-# @login_required  # Ensures only authenticated users can access
-# def upload_image(request):
-#     if not request.user.is_superuser:
-#         # Restrict access for non-superusers
-#         return HttpResponseForbidden("You do not have permission to upload images.")
+@login_required  # Ensures only authenticated users can access
+def upload_image(request):
+    if not request.user.is_superuser:
+        # Restrict access for non-superusers
+        return HttpResponseForbidden("You do not have permission to upload images.")
     
     if request.method == 'POST':
         # Retrieve data from form

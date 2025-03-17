@@ -31,7 +31,7 @@
         <td>
             <a href="{% url 'caveapp:update_booking' booking.id %}">Edit</a>
             <a href="{% url 'caveapp:delete_booking' booking.id %}"class="btn btn-danger">Delete</a>
-           
+            <a href="{% url 'caveapp:pay' %}" class="btn btn-success">Pay</a>
         </td>
        </tr>
        {% endfor %} 
